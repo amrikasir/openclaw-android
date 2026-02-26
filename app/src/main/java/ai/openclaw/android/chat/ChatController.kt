@@ -141,14 +141,12 @@ class ChatController(
           )
         }
       }
-    _messages.value =
-      _messages.value +
-        ChatMessage(
-          id = UUID.randomUUID().toString(),
-          role = "user",
-          content = userContent,
-          timestampMs = System.currentTimeMillis(),
-        )
+      _messages.value += ChatMessage(
+        id = UUID.randomUUID().toString(),
+        role = "user",
+        content = userContent,
+        timestampMs = System.currentTimeMillis(),
+      )
 
     armPendingRunTimeout(runId)
     synchronized(pendingRuns) {
